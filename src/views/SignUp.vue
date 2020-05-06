@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto px-4">
-    <form @submit.prevent="signup" class="shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <form @submit.prevent="signUp" class="shadow-md rounded px-8 pt-6 pb-8 mb-4">
       <h1 class="mb-4 text-2xl">Inscription</h1>
 
       <div class="mb-4">
@@ -30,11 +30,11 @@ import Component from 'vue-class-component'
 import { auth } from '@/plugins/firebase'
 
 @Component
-export default class Signup extends Vue {
+export default class SignUp extends Vue {
   email = ''
   password = ''
 
-  signup () {
+  signUp () {
     auth
       .createUserWithEmailAndPassword(this.email, this.password)
       .catch(error => {
