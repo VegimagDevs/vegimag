@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container mx-auto px-4">
     <form @submit.prevent="signup">
       <input v-model="email" type="email" placeholder="Adresse mail">
       <input v-model="password" type="password" placeholder="Mot de passe">
