@@ -15,6 +15,7 @@ const app = new Vue({
 
 auth.onAuthStateChanged(user => {
   store.commit('setIsAuthenticated', user !== null)
+  store.dispatch('bindBasket')
 
   app.$mount('#app')
 })
