@@ -7,14 +7,20 @@ import './assets/tailwind.css'
 
 Vue.config.productionTip = false
 
-const app = new Vue({
-  router,
-  store,
-  render: h => h(App)
-})
+let mounted = false
 
 auth.onAuthStateChanged(user => {
   store.commit('setIsAuthenticated', user !== null)
 
-  app.$mount('#app')
+  console.log('Mounting app')
+
+  if (!mounted) {
+    mounted = true
+
+    new Vue({
+      router,
+      store,
+      render: h => h(App)
+    }).$mount('#app')
+  }
 })
