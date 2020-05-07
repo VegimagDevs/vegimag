@@ -11,10 +11,10 @@ const routes: Array<RouteConfig> = [
   {
     path: '/',
     name: 'Home',
-    component: Home,
-    meta: {
-      requiresAuth: true
-    }
+    component: Home
+    // meta: {
+    //   requiresAuth: true
+    // }
   },
   {
     path: '/signin',
