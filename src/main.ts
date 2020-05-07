@@ -11,6 +11,7 @@ let mounted = false
 
 auth.onAuthStateChanged(user => {
   store.commit('auth/setIsAuthenticated', user !== null)
+  store.dispatch('bindBasket')
 
   if (!mounted) {
     mounted = true
