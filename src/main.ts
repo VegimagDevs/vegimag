@@ -12,8 +12,6 @@ let mounted = false
 auth.onAuthStateChanged(user => {
   store.commit('setIsAuthenticated', user !== null)
 
-  console.log('Mounting app')
-
   if (!mounted) {
     mounted = true
 

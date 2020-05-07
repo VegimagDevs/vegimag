@@ -21,6 +21,8 @@
         <button class="btn btn-primary" type="submit">S'inscrire</button>
       </div>
     </form>
+
+    <alert type="success" title="Hey" message="Woaw, une notification !"></alert>
   </div>
 </template>
 
@@ -28,8 +30,13 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 import { auth } from '@/plugins/firebase'
+import Alert from '@/components/Alert'
 
-@Component
+@Component({
+  components: {
+    Alert
+  }
+})
 export default class SignUp extends Vue {
   email = ''
   password = ''
