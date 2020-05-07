@@ -28,40 +28,43 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import Component from 'vue-class-component'
 import { auth } from '@/plugins/firebase'
 
-@Component
-export default class SignIn extends Vue {
-  email = ''
-  password = ''
+export default {
+  name: 'SignIn',
 
-  async signIn () {
-    try {
-      await auth.signInWithEmailAndPassword(this.email, this.password)
+  data: () => ({
+    email: '',
+    password: ''
+  }),
 
-      await this.$store.dispatch('alert/create', {
-        type: 'success',
-        title: 'C\'est bon !',
-        message: 'Bon retour parmi nous !'
-      })
+  methods: {
+    async signIn () {
+      try {
+        await auth.signInWithEmailAndPassword(this.email, this.password)
 
-      const redirectPath = this.$route.query.redirect as string|undefined
+        await this.$store.dispatch('alert/create', {
+          type: 'success',
+          title: 'C\'est bon !',
+          message: 'Bon retour parmi nous !'
+        })
 
-      if (redirectPath) {
-        this.$router.push(redirectPath)
-      } else {
-        this.$router.push({
-          name: 'Home'
+        const redirectPath = this.$route.query.redirect
+
+        if (redirectPath) {
+          this.$router.push(redirectPath)
+        } else {
+          this.$router.push({
+            name: 'Home'
+          })
+        }
+      } catch (error) {
+        this.$store.dispatch('alert/create', {
+          type: 'error',
+          title: 'Une erreur est survenue !',
+          message: error.message
         })
       }
-    } catch (error) {
-      this.$store.dispatch('alert/create', {
-        type: 'error',
-        title: 'Une erreur est survenue !',
-        message: error.message
-      })
     }
   }
 }

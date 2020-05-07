@@ -6,19 +6,18 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import Component from 'vue-class-component'
-import Alert from './components/Alert.vue'
+<script>
+import Alert from './components/Alert'
 
-@Component({
+export default {
+  computed: {
+    currentAlert () {
+      return this.$store.state.alert.currentAlert
+    }
+  },
+
   components: {
     Alert
-  }
-})
-export default class App extends Vue {
-  get currentAlert () {
-    return this.$store.state.alert.currentAlert
   }
 }
 </script>

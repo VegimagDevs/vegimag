@@ -9,11 +9,13 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import Component from 'vue-class-component'
+export default {
+  name: 'Home',
 
-@Component
-export default class Home extends Vue {
-  basket = this.$store.state.basket
+  computed: {
+    basket () {
+      return this.$store.state.basket.basket
+    }
+  }
 }
 </script>
