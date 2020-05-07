@@ -1,7 +1,7 @@
 <template>
   <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md absolute bottom-0" role="alert">
     <div class="flex">
-      <div class="py-1"><check-icon class="fill-current h-6 w-6 text-teal-500 mr-4"/></div>
+      <div class="py-1"><i class="fill-current h-6 w-6 text-teal-500 mr-4 material-icons">done</i></div>
       <div>
         <p class="font-bold">{{ title }}</p>
         <p class="text-sm">{{ message }}</p>
@@ -13,26 +13,16 @@
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import { CheckIcon } from 'vue-feather-icons'
-
-enum AlertType {
-  Success = 'success',
-  Error = 'error'
-}
 
 const AlertProps = Vue.extend({
   props: {
-    type: AlertType,
+    type: String,
     title: String,
     message: String
   }
 })
 
-@Component({
-  components: {
-    CheckIcon
-  }
-})
+@Component
 export default class Alert extends AlertProps {
 }
 </script>

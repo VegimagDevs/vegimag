@@ -10,7 +10,7 @@ Vue.config.productionTip = false
 let mounted = false
 
 auth.onAuthStateChanged(user => {
-  store.commit('setIsAuthenticated', user !== null)
+  store.commit('auth/setIsAuthenticated', user !== null)
 
   if (!mounted) {
     mounted = true

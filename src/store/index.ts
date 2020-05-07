@@ -1,20 +1,16 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import auth from './modules/auth'
+import alert from './modules/alert'
 
 Vue.use(Vuex)
 
+const debug = process.env.NODE_ENV !== 'production'
+
 export default new Vuex.Store({
-  state: {
-    isAuthenticated: false
-  },
-  mutations: {
-    setIsAuthenticated (state, isAuthenticated) {
-      state.isAuthenticated = isAuthenticated
-    }
-  },
-  actions: {
-  },
   modules: {
+    auth,
+    alert
   },
-  strict: process.env.NODE_ENV !== 'production'
+  strict: debug
 })
