@@ -2,8 +2,12 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import { vuexfireMutations, firestoreAction } from 'vuexfire'
 import { firestore } from '@/plugins/firebase'
+import auth from './modules/auth'
+import alert from './modules/alert'
 
 Vue.use(Vuex)
+
+const debug = process.env.NODE_ENV !== 'production'
 
 export default new Vuex.Store({
   state: {
@@ -22,6 +26,8 @@ export default new Vuex.Store({
     })
   },
   modules: {
+    auth,
+    alert
   },
-  strict: process.env.NODE_ENV !== 'production'
+  strict: debug
 })

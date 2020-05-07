@@ -37,23 +37,32 @@ export default class SignIn extends Vue {
   email = ''
   password = ''
 
-  signIn () {
-    auth
-      .signInWithEmailAndPassword(this.email, this.password)
-      .then(() => {
-        const redirectPath = this.$route.query.redirect as string|null
+  async signIn () {
+    try {
+      await auth.signInWithEmailAndPassword(this.email, this.password)
 
-        if (redirectPath) {
-          this.$router.push(redirectPath)
-        } else {
-          this.$router.push({
-            name: 'Home'
-          })
-        }
+      await this.$store.dispatch('alert/create', {
+        type: 'success',
+        title: 'C\'est bon !',
+        message: 'Bon retour parmi nous !'
       })
-      .catch((error) => {
-        alert('Quelque chose s’est mal passé :' + error.message)
+
+      const redirectPath = this.$route.query.redirect as string|undefined
+
+      if (redirectPath) {
+        this.$router.push(redirectPath)
+      } else {
+        this.$router.push({
+          name: 'Home'
+        })
+      }
+    } catch (error) {
+      this.$store.dispatch('alert/create', {
+        type: 'error',
+        title: 'Une erreur est survenue !',
+        message: error.message
       })
+    }
   }
 }
 </script>

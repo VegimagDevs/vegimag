@@ -35,22 +35,31 @@ export default class SignUp extends Vue {
   password = ''
 
   signUp () {
-    auth
-      .createUserWithEmailAndPassword(this.email, this.password)
-      .then(() => {
-        const redirectPath = this.$route.query.redirect as string|null
+    try {
+      await auth.createUserWithEmailAndPassword(this.email, this.password)
 
-        if (redirectPath) {
-          this.$router.push(redirectPath)
-        } else {
-          this.$router.push({
-            name: 'Home'
-          })
-        }
+      await this.$store.dispatch('alert/create', {
+        type: 'success',
+        title: 'Super !',
+        message: 'Félicitations, vous êtes désormais un légume !'
       })
-      .catch(error => {
-        alert(error.message)
+
+      const redirectPath = this.$route.query.redirect as string|undefined
+
+      if (redirectPath) {
+        this.$router.push(redirectPath)
+      } else {
+        this.$router.push({
+          name: 'Home'
+        })
+      }
+    } catch (error) {
+      this.$store.dispatch('alert/create', {
+        type: 'error',
+        title: 'Une erreur est survenue !',
+        message: error.message
       })
+    }
   }
 }
 </script>

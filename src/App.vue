@@ -1,8 +1,27 @@
 <template>
   <div id="app">
     <router-view/>
+
+    <alert v-if="currentAlert" :type="currentAlert.type" :title="currentAlert.title" :message="currentAlert.message"/>
   </div>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import Alert from './components/Alert.vue'
+
+@Component({
+  components: {
+    Alert
+  }
+})
+export default class App extends Vue {
+  get currentAlert () {
+    return this.$store.state.alert.currentAlert
+  }
+}
+</script>
 
 <style>
 @tailwind base;
