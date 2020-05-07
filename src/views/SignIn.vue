@@ -41,8 +41,10 @@ export default class SignIn extends Vue {
     auth
       .signInWithEmailAndPassword(this.email, this.password)
       .then(() => {
-        if (this.$route.query.redirect) {
-          this.$router.push(this.$route.query.redirect)
+        const redirectPath = this.$route.query.redirect as string|null
+
+        if (redirectPath) {
+          this.$router.push(redirectPath)
         } else {
           this.$router.push({
             name: 'Home'

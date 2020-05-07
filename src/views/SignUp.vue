@@ -24,7 +24,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
 import { auth } from '@/plugins/firebase'
@@ -38,8 +38,10 @@ export default class SignUp extends Vue {
     auth
       .createUserWithEmailAndPassword(this.email, this.password)
       .then(() => {
-        if (this.$route.query.redirect) {
-          this.$router.push(this.$route.query.redirect)
+        const redirectPath = this.$route.query.redirect as string|null
+
+        if (redirectPath) {
+          this.$router.push(redirectPath)
         } else {
           this.$router.push({
             name: 'Home'
