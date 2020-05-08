@@ -29,7 +29,7 @@ export default {
 /* purgecss end ignore */
 
 .btn {
-  @apply shadow font-bold py-2 px-4 rounded;
+  @apply shadow font-bold py-2 px-4 rounded text-center;
 }
 
 .btn:focus {
@@ -37,11 +37,29 @@ export default {
 }
 
 .btn-primary {
-  @apply bg-purple-500 text-white;
+  @apply bg-primary-500 text-white;
 }
 
 .btn-primary:hover {
-  @apply bg-purple-400;
+  @apply bg-primary-400;
+}
+
+.btn-secondary {
+  @apply bg-secondary-300 text-gray-800;
+}
+
+.btn-secondary:hover {
+  @apply bg-secondary-400;
+}
+
+.auth-form {
+  @apply shadow-md rounded px-4 pt-6 pb-8 mb-4;
+}
+
+@screen md {
+  .auth-form {
+    @apply px-8;
+  }
 }
 
 .form-input {
