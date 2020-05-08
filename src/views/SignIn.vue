@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto px-4">
+  <section>
     <form @submit.prevent="signIn" class="shadow-md rounded px-8 pt-6 pb-8 mb-4">
       <h1 class="mb-4 text-2xl">Connexion</h1>
 
@@ -24,7 +24,7 @@
 
     <p>Mot de passe oublié ?</p>
     <p>Pas de compte ?</p>
-  </div>
+  </section>
 </template>
 
 <script lang="ts">

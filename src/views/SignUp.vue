@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto px-4">
+  <section>
     <form @submit.prevent="signUp" class="shadow-md rounded px-8 pt-6 pb-8 mb-4">
       <h1 class="mb-4 text-2xl">Inscription</h1>
 
@@ -21,7 +21,7 @@
         <button class="btn btn-primary" type="submit">S'inscrire</button>
       </div>
     </form>
-  </div>
+  </section>
 </template>
 
 <script lang="ts">
