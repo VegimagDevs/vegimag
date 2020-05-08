@@ -10,19 +10,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import Component from 'vue-class-component'
-
-const AlertProps = Vue.extend({
-  props: {
-    type: String,
-    title: String,
-    message: String
-  }
-})
-
-@Component
-export default class Alert extends AlertProps {
+<script>
+export default {
+  name: 'Alert'
 }
 </script>

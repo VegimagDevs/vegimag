@@ -14,11 +14,17 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import Component from 'vue-class-component'
+export default {
+  metaInfo: {
+    title: 'Les paniers de légume, c\'est trop bien !'
+  },
 
-@Component
-export default class Home extends Vue {
-  basket = this.$store.state.basket
+  name: 'HomeView',
+
+  computed: {
+    basket () {
+      return this.$store.state.basket.basket
+    }
+  }
 }
 </script>
