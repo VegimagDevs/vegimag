@@ -10,6 +10,10 @@
 
 <script>
 export default {
+  metaInfo: {
+    title: 'Les paniers de légume, c\'est trop bien !'
+  },
+
   name: 'Home',
 
   computed: {

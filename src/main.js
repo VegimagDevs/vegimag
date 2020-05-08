@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import { auth } from './plugins/firebase'
+import './plugins/meta'
 import './assets/tailwind.css'
 
 Vue.config.productionTip = false

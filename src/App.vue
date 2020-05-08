@@ -10,6 +10,11 @@
 import Alert from './components/Alert'
 
 export default {
+  metaInfo: {
+    title: 'Vegimag',
+    titleTemplate: 'Vegimag - %s'
+  },
+
   computed: {
     currentAlert () {
       return this.$store.state.alert.currentAlert

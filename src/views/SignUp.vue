@@ -33,6 +33,10 @@
 import { auth } from '@/plugins/firebase'
 
 export default {
+  metaInfo: {
+    title: 'Inscription'
+  },
+
   name: 'SignUp',
 
   data: () => ({

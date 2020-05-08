@@ -34,6 +34,10 @@
 import { auth } from '@/plugins/firebase'
 
 export default {
+  metaInfo: {
+    title: 'Connexion'
+  },
+
   name: 'SignIn',
 
   data: () => ({
