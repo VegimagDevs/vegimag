@@ -34,7 +34,7 @@ export default class SignUp extends Vue {
   email = ''
   password = ''
 
-  signUp () {
+  async signUp () {
     try {
       await auth.createUserWithEmailAndPassword(this.email, this.password)
 
