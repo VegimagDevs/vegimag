@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import store from '@/store'
 
 import Home from '../views/Home.vue'
+import NotFound from '../views/NotFound.vue'
 
 import AuthLayout from '../layouts/AuthLayout.vue'
 import SignIn from '../views/SignIn.vue'
@@ -34,6 +35,11 @@ const routes = [
         component: SignUp
       }
     ]
+  },
+  {
+    path: '*',
+    name: 'NotFound',
+    component: NotFound
   }
 ]
 
