@@ -1,19 +1,25 @@
 <template>
-  <div>
-    <div class="flex mb-4">
-      <div class="w-full bg-gray-500 h-12">
-        <h1 class="">Vegimag</h1>
-      </div>
-    </div>
+  <div class="container mx-auto px-4 mt-4">
+    <nav-bar/>
 
-    <h2 class="text-center">Panier de la semaine</h2>
-    <div class="flex flex-row bg-gray-200">
-      <button class="text-gray-700 text-center bg-gray-400 px-4 py-2 m-2" v-for="ingredient in basket" :key="ingredient.name">{{ ingredient.name }}</button>
+    <h2 class="text-xl font-bold text-gray-800 text-center my-12">Panier de la semaine</h2>
+
+    <div class="flex flex-row justify-around">
+      <div class="flex flex-col rounded-lg border-2 w-32 h-32 mx-2" v-for="ingredient in basket" :key="ingredient.name">
+        <div class="flex-grow rounded-t-lg bg-gray-200">
+          <!--vegetable image-->
+        </div>
+        <div class="text-center rounded-b-lg px-2">
+          {{ ingredient.name }}
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import NavBar from '@/components/NavBar.vue'
+
 export default {
   metaInfo: {
     title: 'Les paniers de légume, c\'est trop bien !'
@@ -25,6 +31,10 @@ export default {
     basket () {
       return this.$store.state.basket.basket
     }
+  },
+
+  components: {
+    NavBar
   }
 }
 </script>
