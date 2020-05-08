@@ -14,7 +14,7 @@ export default {
     title: 'Les paniers de légume, c\'est trop bien !'
   },
 
-  name: 'Home',
+  name: 'HomeView',
 
   computed: {
     basket () {

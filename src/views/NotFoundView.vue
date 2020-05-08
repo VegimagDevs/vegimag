@@ -7,3 +7,13 @@
     </section>
   </div>
 </template>
+
+<script>
+export default {
+  metaInfo: {
+    title: 'Page introuvable'
+  },
+
+  name: 'NotFoundView'
+}
+</script>

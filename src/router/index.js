@@ -2,12 +2,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from '@/store'
 
-import Home from '../views/Home.vue'
-import NotFound from '../views/NotFound.vue'
+import HomeView from '../views/HomeView'
+import NotFoundView from '../views/NotFoundView'
 
-import AuthLayout from '../layouts/AuthLayout.vue'
-import SignIn from '../views/SignIn.vue'
-import SignUp from '../views/SignUp.vue'
+import AuthLayout from '../layouts/AuthLayout'
+import SignInView from '../views/SignInView'
+import SignUpView from '../views/SignUpView'
 
 Vue.use(VueRouter)
 
@@ -15,7 +15,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: HomeView
     // meta: {
     //   requiresAuth: true
     // }
@@ -27,19 +27,19 @@ const routes = [
       {
         path: 'signin',
         name: 'SignIn',
-        component: SignIn
+        component: SignInView
       },
       {
         path: 'signup',
         name: 'SignUp',
-        component: SignUp
+        component: SignUpView
       }
     ]
   },
   {
     path: '*',
     name: 'NotFound',
-    component: NotFound
+    component: NotFoundView
   }
 ]
 

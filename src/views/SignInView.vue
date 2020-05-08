@@ -1,7 +1,7 @@
 <template>
   <section>
-    <form @submit.prevent="signUp" class="auth-form">
-      <h1 class="mb-4 text-2xl">Inscription</h1>
+    <form @submit.prevent="signIn" class="auth-form">
+      <h1 class="mb-4 text-2xl">Connexion</h1>
 
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
@@ -18,12 +18,13 @@
       </div>
 
       <div class="flex flex-wrap items-center mb-4">
-        <button class="btn btn-primary mb-2 md:mb-0 md:mr-2 w-full md:w-auto" type="submit">S'inscrire</button>
+        <button class="btn btn-primary mb-2 md:mb-0 md:mr-2 w-full md:w-auto" type="submit">Se connecter</button>
         <router-link :to="{ name: 'Home' }" class="btn btn-secondary w-full md:w-auto">Annuler</router-link>
       </div>
 
-      <div class="flex items-center justify-end">
-        <router-link :to="{ name: 'SignIn' }" class="inline-block align-baseline font-bold text-sm text-purple-500 hover:text-purple-400">Se connecter</router-link>
+      <div class="flex items-center justify-between">
+        <a href="/auth/forgot" class="inline-block align-baseline font-bold text-sm text-purple-500 hover:text-purple-400">Mot de passe oublié</a>
+        <router-link :to="{ name: 'SignUp' }" class="inline-block align-baseline font-bold text-sm text-purple-500 hover:text-purple-400">S'inscrire</router-link>
       </div>
     </form>
   </section>
@@ -34,10 +35,10 @@ import { auth } from '@/plugins/firebase'
 
 export default {
   metaInfo: {
-    title: 'Inscription'
+    title: 'Connexion'
   },
 
-  name: 'SignUp',
+  name: 'SignInView',
 
   data: () => ({
     email: '',
@@ -45,14 +46,14 @@ export default {
   }),
 
   methods: {
-    async signUp () {
+    async signIn () {
       try {
-        await auth.createUserWithEmailAndPassword(this.email, this.password)
+        await auth.signInWithEmailAndPassword(this.email, this.password)
 
         await this.$store.dispatch('alert/create', {
           type: 'success',
-          title: 'Super !',
-          message: 'Félicitations, vous êtes désormais un légume !'
+          title: 'C\'est bon !',
+          message: 'Bon retour parmi nous !'
         })
 
         const redirectPath = this.$route.query.redirect
