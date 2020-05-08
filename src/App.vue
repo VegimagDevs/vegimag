@@ -23,8 +23,10 @@ export default {
 </script>
 
 <style>
+/* purgecss start ignore */
 @tailwind base;
 @tailwind components;
+/* purgecss end ignore */
 
 .btn {
   @apply shadow font-bold py-2 px-4 rounded;
