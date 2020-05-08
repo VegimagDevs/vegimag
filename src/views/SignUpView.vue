@@ -29,7 +29,7 @@
   </section>
 </template>
 
-<script lang="ts">
+<script>
 import { auth } from '@/plugins/firebase'
 
 export default {

@@ -34,7 +34,7 @@ export default {
 /* purgecss end ignore */
 
 .btn {
-  @apply shadow font-bold py-2 px-4 rounded text-center;
+  @apply font-bold py-2 px-4 rounded text-center;
 }
 
 .btn:focus {
