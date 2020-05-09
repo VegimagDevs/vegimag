@@ -4,8 +4,8 @@
 
     <h2 class="text-xl font-bold text-gray-800 text-center my-12">Panier de la semaine</h2>
 
-    <div class="flex flex-row justify-around">
-      <div class="flex flex-col rounded-lg border-2 w-32 h-32 mx-2" v-for="ingredient in basket" :key="ingredient.name">
+    <div class="flex flex-row justify-around" v-if="basket">
+      <div class="flex flex-col rounded-lg border-2 w-32 h-32 mx-2" v-for="ingredient in basket.ingredients" :key="ingredient.name">
         <div class="flex-grow rounded-t-lg bg-gray-200">
           <!--vegetable image-->
         </div>
@@ -29,7 +29,7 @@ export default {
 
   computed: {
     basket () {
-      return this.$store.state.basket.basket
+      return this.$store.getters['basket/basket']
     }
   },
 

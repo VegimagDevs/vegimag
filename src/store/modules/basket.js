@@ -2,17 +2,24 @@ import { firestoreAction } from 'vuexfire'
 import { firestore } from '@/plugins/firebase'
 
 const state = () => ({
-  basket: []
+  baskets: []
 })
 
 const actions = {
   bind: firestoreAction(({ bindFirestoreRef }) => {
-    return bindFirestoreRef('basket', firestore.collection('ingredients'))
+    return bindFirestoreRef('baskets', firestore.collection('baskets'))
   })
+}
+
+const getters = {
+  basket (state) {
+    return state.baskets[0]
+  }
 }
 
 export default {
   namespaced: true,
   state,
-  actions
+  actions,
+  getters
 }
