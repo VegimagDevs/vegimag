@@ -66,11 +66,7 @@ export default {
           })
         }
       } catch (error) {
-        this.$store.dispatch('alert/create', {
-          type: 'error',
-          title: 'Une erreur est survenue !',
-          message: error.message
-        })
+        this.$store.dispatch('alert/createFromErrorCode', error.code)
       }
     }
   }
