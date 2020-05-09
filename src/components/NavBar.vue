@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center border-b py-2">
+  <div class="flex items-center border-b pt-2 pb-4">
     <div class="flex-grow">
       <h1 class="text-xl font-medium text-gray-800">Vegimag</h1>
     </div>
