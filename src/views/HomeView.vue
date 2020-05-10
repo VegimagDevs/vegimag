@@ -1,10 +1,8 @@
 <template>
-  <div class="container mx-auto px-4 mt-4">
-    <nav-bar/>
+  <div>
+    <h2 class="title-2 text-center my-12">Panier de la semaine</h2>
 
-    <h2 class="text-xl font-bold text-gray-800 text-center my-12">Panier de la semaine</h2>
-
-    <div class="flex flex-row justify-around">
+    <div class="flex flex-row justify-around mb-16">
       <div class="flex flex-col rounded-lg border-2 w-32 h-32 mx-2" v-for="ingredient in basket" :key="ingredient.name">
         <div class="flex-grow rounded-t-lg bg-gray-200">
           <!--vegetable image-->
@@ -14,11 +12,15 @@
         </div>
       </div>
     </div>
+
+    <div class="flex flex-row">
+      <h2 class="flex-grow title-2">Recettes</h2>
+      <router-link :to="{ name: 'CreateRecipe' }" class="btn btn-primary">Nouvelle recette</router-link>
+    </div>
   </div>
 </template>
 
 <script>
-import NavBar from '@/components/NavBar.vue'
 
 export default {
   metaInfo: {
@@ -31,10 +33,6 @@ export default {
     basket () {
       return this.$store.state.basket.basket
     }
-  },
-
-  components: {
-    NavBar
   }
 }
 </script>

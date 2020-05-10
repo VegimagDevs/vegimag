@@ -33,6 +33,18 @@ export default {
 @tailwind components;
 /* purgecss end ignore */
 
+.title-1 {
+  @apply text-xl font-medium text-gray-800
+}
+
+.title-2 {
+  @apply text-xl font-bold text-gray-800
+}
+
+.title-3 {
+  @apply text-lg font-semibold text-gray-700
+}
+
 .btn {
   @apply font-bold py-2 px-4 rounded text-center;
 }
@@ -55,6 +67,14 @@ export default {
 
 .btn-secondary:hover {
   @apply bg-secondary-400;
+}
+
+.btn-round {
+  @apply rounded-full border-2 border-primary-500 text-primary-500 items-center justify-center transition-colors duration-100;
+}
+
+.btn-round:hover {
+  @apply bg-primary-400 border-primary-400 text-white;
 }
 
 .auth-form {
