@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center border-b py-2">
+  <div class="flex items-center border-b pt-2 pb-4">
     <div class="flex-grow">
       <router-link :to="{ name: 'Home' }" class="title-1">Vegimag</router-link>
     </div>

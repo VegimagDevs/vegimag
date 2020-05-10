@@ -47,6 +47,10 @@ const routes = [
         path: 'signup',
         name: 'SignUp',
         component: SignUpView
+      },
+      {
+        path: '',
+        component: NotFoundView
       }
     ]
   },
