@@ -3,14 +3,13 @@ import VueRouter from 'vue-router'
 import store from '@/store'
 
 import MainLayout from '../layouts/MainLayout'
-import CreateRecipeView from '../views/CreateRecipeView'
-import HomeView from '../views/HomeView'
-
-import NotFoundView from '../views/NotFoundView'
-
 import AuthLayout from '../layouts/AuthLayout'
-import SignInView from '../views/SignInView'
-import SignUpView from '../views/SignUpView'
+
+import HomeView from '../views/HomeView'
+import NotFoundView from '../views/NotFoundView'
+import CreateRecipeView from '../views/recipes/CreateRecipeView'
+import SignInView from '../views/auth/SignInView'
+import SignUpView from '../views/auth/SignUpView'
 
 Vue.use(VueRouter)
 
@@ -23,12 +22,9 @@ const routes = [
         path: '',
         name: 'Home',
         component: HomeView
-        // meta: {
-        //   requiresAuth: true
-        // }
       },
       {
-        path: '/createrecipe',
+        path: '/recipes/create',
         name: 'CreateRecipe',
         component: CreateRecipeView
       }
@@ -39,12 +35,12 @@ const routes = [
     component: AuthLayout,
     children: [
       {
-        path: 'signin',
+        path: 'sign-in',
         name: 'SignIn',
         component: SignInView
       },
       {
-        path: 'signup',
+        path: 'sign-up',
         name: 'SignUp',
         component: SignUpView
       },
